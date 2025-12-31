@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise for Shuttumani ♡</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: 'Poppins', sans-serif;
+        overflow: hidden;
+        color: white;
+        text-align: center;
+    }
+
+    .slide {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 1s ease;
+        pointer-events: none;
+    }
+
+    .slide.active {
+        opacity: 1;
+        pointer-events: all;
+        z-index: 10;
+    }
+
+    .btn {
+        padding: 15px 30px;
+        font-size: 1.5em;
+        margin: 20px;
+        background: #ffc0cb; /* baby pink */
+        color: white;
+        border: 4px solid #ff69b4; /* hot pink */
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        transition: transform 0.2s;
+    }
+
+    .btn:hover {
+        transform: scale(1.1);
+    }
+
+    .text {
+        font-size: 2.8em;
+        margin: 20px;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .box {
+        background: #ffc0cb;
+        padding: 40px;
+        border-radius: 30px;
+        margin: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .option-box {
+        display: inline-block;
+        margin: 30px;
+        cursor: pointer;
+    }
+
+    /* Background colors */
+    #slide1 { background: #ffb6c1; } /* baby pink */
+    #slide2 { background: #fffacd; } /* baby yellow */
+    #slide3a, #slide4a { background: #ffb6c1; }
+    #slide3b, #slide4b { background: #fffacd; }
+    #slide5a { background: #8b0000; color: white; } /* wine red */
+    #slide5b { background: #000080; } /* navy blue */
+    #slide6 { background: #add8e6; } /* baby blue */
+    #slide7 { background: #ffe4e1; } /* light pink */
+
+    /* Fireworks */
+    .fireworks {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    /* Tulips animation */
+    .tulips {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 200px;
+        background: url('https://i.imgur.com/0z1pXvK.png') repeat-x bottom;
+        background-size: auto 180px;
+        animation: tulips-move 30s linear infinite;
+    }
+
+    @keyframes tulips-move {
+        0% { background-position: 0 bottom; }
+        100% { background-position: 2000px bottom; }
+    }
+
+    /* Lip prints animation */
+    .lips {
+        position: absolute;
+        font-size: 4em;
+        opacity: 0;
+        animation: kiss 3s infinite;
+    }
+
+    @keyframes kiss {
+        0% { transform: translateY(100px) scale(0); opacity: 0; }
+        50% { opacity: 0.8; }
+        100% { transform: translateY(-300px) scale(1.5); opacity: 0; }
+    }
+
+    /* Roses for proposal slides */
+    .roses {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 180px;
+        background: url('https://i.imgur.com/3zR9o0T.png') repeat-x bottom;
+        background-size: auto 160px;
+    }
+</style>
+</head>
+<body>
+
+<!-- Slide 1: Fireworks + Surprise button -->
+<div id="slide1" class="slide active">
+    <div class="fireworks" id="fireworks"></div>
+    <button class="btn" onclick="goTo(2)">surprisee</button>
+</div>
+
+<!-- Slide 2: Happy New Year -->
+<div id="slide2" class="slide">
+    <div class="box">
+        <div class="text">happy new year my shuttumaniiii</div>
+    </div>
+    <button class="btn" onclick="goTo(3)">heheh</button>
+    <button class="btn" onclick="goTo(4)">no</button>
+</div>
+
+<!-- Slide 3: Heheh path -->
+<div id="slide3" class="slide">
+    <div class="text">shyo nte cutie pie</div>
+    <button class="btn" onclick="goTo(5)">next</button>
+</div>
+
+<!-- Slide 4: No path -->
+<div id="slide4" class="slide">
+    <div class="text">patti thirich poda</div>
+    <button class="btn" onclick="goTo(2)">previous slide</button>
+</div>
+
+<!-- Slide 5: Big love message + tulips -->
+<div id="slide5" class="slide">
+    <div class="tulips"></div>
+    <div class="text">happy new year my shuttumani<br>i love you sosososoooo much</div>
+    <button class="btn" onclick="goTo(6)">next</button>
+</div>
+
+<!-- Slide 6: Ring or Flowers choice -->
+<div id="slide6" class="slide">
+    <div class="text">choose one ♡</div>
+    <div class="option-box" onclick="goTo(7)">
+        <img src="https://i.imgur.com/5z5V9Zv.png" width="200" alt="Diamond Ring">
+        <div style="margin-top:10px;">Diamond Ring</div>
+    </div>
+    <div class="option-box" onclick="goTo(8)">
+        <img src="https://i.imgur.com/JQx8z5P.png" width="200" alt="Bouquet">
+        <div style="margin-top:10px;">Bouquet of Flowers</div>
+    </div>
+</div>
+
+<!-- Slide 7: Will you marry me? -->
+<div id="slide7" class="slide">
+    <div class="roses"></div>
+    <div class="text" style="font-size:3.5em;">WILL YOU MARRY ME SHUTTU?</div>
+    <button class="btn" onclick="goTo(9)">yes</button>
+    <button class="btn" onclick="goTo(9)">YES!</button>
+</div>
+
+<!-- Slide 8: Can I be your Sundhari Kutty? -->
+<div id="slide8" class="slide">
+    <div class="text" style="font-size:3em;">CAN I BE YOUR SUNDHARI KUTTY FOREVER?</div>
+    <button class="btn" onclick="goTo(9)">yes</button>
+    <button class="btn" onclick="goTo(9)">YES!</button>
+</div>
+
+<!-- Slide 9: Mwahhhhh -->
+<div id="slide9" class="slide">
+    <div class="lips">💋</div>
+    <div class="lips" style="left:20%; animation-delay:0.5s;">💋</div>
+    <div class="lips" style="right:20%; animation-delay:1s;">💋</div>
+    <div class="lips" style="left:40%; animation-delay:1.5s;">💋</div>
+    <div class="text" style="font-size:5em;">mwahhhhhhhhh</div>
+    <div class="btn" onclick="goTo(10)">pinney...</div>
+</div>
+
+<!-- Slide 10: Final message -->
+<div id="slide10" class="slide">
+    <div class="text" style="font-size:2.5em; max-width:90%;">
+        i'm so happy i met u shuttu<br>
+        i love you so much<br>
+        idk how to code and stuff but :)<br>
+        thats it ♡
+    </div>
+</div>
+
+<script>
+// Simple fireworks using canvas
+const canvas = document.createElement('canvas');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+canvas.style.position = 'absolute';
+canvas.style.top = '0';
+canvas.style.left = '0';
+document.getElementById('fireworks').appendChild(canvas);
+const ctx = canvas.getContext('2d');
+
+let particles = [];
+
+function createParticle() {
+    return {
+        x: Math.random() * canvas.width,
+        y: canvas.height,
+        vx: Math.random() * 4 - 2,
+        vy: Math.random() * -8 - 8,
+        radius: Math.random() * 3 + 2,
+        color: 'white',
+        alpha: 1
+    };
+}
+
+function animateFireworks() {
+    if (document.querySelector('#slide1').classList.contains('active')) {
+        for (let i = 0; i < 3; i++) particles.push(createParticle());
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach((p, i) => {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vy += 0.2; // gravity
+            p.alpha -= 0.01;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+            ctx.fill();
+
+            if (p.alpha <= 0) particles.splice(i, 1);
+        });
+    }
+    requestAnimationFrame(animateFireworks);
+}
+animateFireworks();
+
+// Slide navigation
+function goTo(n) {
+    document.querySelector('.slide.active').classList.remove('active');
+    document.getElementById('slide' + n).classList.add('active');
+}
+
+// Responsive canvas
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
+
+</body>
+</html>
